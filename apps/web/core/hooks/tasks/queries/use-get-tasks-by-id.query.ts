@@ -33,11 +33,10 @@ export const useGetTaskByIdLazyQuery = () => {
 	const queryClient = useQueryClient();
 
 	const getTaskById = (taskId: string) => {
-		setQueryKey(queryKeys.tasks.detail(taskId));
 		return queryClient.fetchQuery({
 			queryKey: queryKeys.tasks.detail(taskId),
-			queryFn: async () => {
-				setQueryKey(queryKeys.tasks.detail(taskId));
+			queryFn: async ({ queryKey }) => {
+				setQueryKey(queryKey);
 				if (!taskId) throw new Error('Task ID is required');
 				return await taskService.getTaskById(taskId);
 			}

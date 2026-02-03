@@ -176,7 +176,7 @@ export const useSetActiveTask = () => {
 			setActiveTeamTask,
 			setActiveUserTaskCookieCb,
 			updateOrganizationTeamEmployeeActiveTask,
-			activeTeam,
+			activeTeamRef,
 			$memberActiveTaskId,
 			$user,
 			tasksRef,
